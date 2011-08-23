@@ -6,7 +6,9 @@ Basta copiar os arquivos clustertail e color_log.awk para qualquer diretório qu
 
 Uso
 ------------------------------
+```
 clustertail path host1 host2 hostN
+```
 
    * path       diretório completo no servidor remoto com o arquivo que deseja monitorar
    * hostN      Nome do host que será monitorado. É necessário configurar o acesso via ssh sem senha.
@@ -15,3 +17,14 @@ clustertail path host1 host2 hostN
 Compatibilidade
 ------------------------------
 Testado apenas no MacOSX 10.6
+
+
+Dicas
+------------------------------
+Configure alias para os logs/servidores que mais costuma utilizar, por exemplo:
+
+```
+alias ctapache='clustertail /var/log/apache2/access_log servidor1.meudominio.com servidor2.meudominio.com'
+```
+
+Assim basta chamar: `ctapache` na linha de comando para utilizar o script
