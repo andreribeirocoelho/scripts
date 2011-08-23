@@ -24,6 +24,9 @@ trap "finalizando" SIGINT SIGTERM SIGHUP
 ARQUIVO=$1
 shift
 
+# imprime no titulo da janela qual o arquivo está sendo monitorado
+echo -ne "\033]0;$ARQUIVO\007";
+
 declare -a PIDS
 let "i = 1"
 for HOST in $@; do

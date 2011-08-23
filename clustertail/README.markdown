@@ -1,7 +1,8 @@
 Cluster Tail
 --------------------
 Executa um comando tail num mesmo path em diversos hosts remotos simultaneamente.
-O logging impresso é colorido para facilitar a identificação dos hosts
+O logging impresso é colorido para facilitar a identificação dos hosts e o titulo da janela é configurado
+de acordo com o arquivo que esta sendo visualizado
 
 
 Instalação
