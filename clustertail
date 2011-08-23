@@ -1,0 +1,36 @@
+#!/bin/bash
+
+if [ $# -lt 2 ]; then
+    echo Numero insuficiente de argumentos.
+    echo $0 arquivo hosts...
+    exit 1;
+fi
+
+finalizando() {
+    # mata todas as sessões ssh do terminal atual
+    killall -t $TERMINAL 'ssh' > /dev/null
+    echo
+}
+
+# Diretório onde se encontra o script
+SCRIPT_DIR=$(cd ${0%/*} && echo $PWD)
+
+# Terminal atual (normalmente ttyXXX)
+TERMINAL=`tty | cut -f 3 -d '/'`
+
+# Intercepta o ctrl+c para matar as sessões ssh abertas
+trap "finalizando" SIGINT SIGTERM SIGHUP
+
+ARQUIVO=$1
+shift
+
+declare -a PIDS
+let "i = 1"
+for HOST in $@; do
+    ssh -n watcher@$HOST tail -f $ARQUIVO | awk -f "$SCRIPT_DIR/color_log.awk" -v logs_number=$i -v logs_host=$HOST &
+    let "i = i + 1"
+done
+
+wait
+
+
