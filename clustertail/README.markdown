@@ -1,7 +1,12 @@
+Cluster Tail
+--------------------
+Executa um comando tail num mesmo path em diversos hosts remotos simultaneamente.
+O logging impresso é colorido para facilitar a identificação dos hosts
+
+
 Instalação
 ------------------------------
 Basta copiar os arquivos clustertail e color_log.awk para qualquer diretório que faça parte do unix PATH
-
 
 
 Uso
@@ -12,6 +17,10 @@ clustertail path host1 host2 hostN
 
    * path       diretório completo no servidor remoto com o arquivo que deseja monitorar
    * hostN      Nome do host que será monitorado. É necessário configurar o acesso via ssh sem senha.
+
+
+Para encerrar o script basta pressionar ctrl+c
+
 
 
 Compatibilidade
