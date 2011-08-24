@@ -3,7 +3,7 @@
 
 	# Colore a mensagem de acordo com o tipo: DEBUG, WARN, ERROR
 	if ($0 ~ /DEBUG|^\[GC \[PSYoungGen|^\[Full GC \[PSYoungGen/)
-		printf "\033[1;30;40m"s;
+		printf "\033[1;37;40m"s;
 
 	else if ($0 ~ /WARN/)
 		printf "\033[0;33m";
